@@ -4,16 +4,14 @@ import { Card, CardContent } from "@/components/ui/card"
 import {
   Carousel,
   CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
+  CarouselItem
 } from "@/components/ui/carousel"
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
 
 const testimonials = [
   {
     name: "Dr. Carlos Silva",
-    avatar: "/bruno-tasso-portrais.jpg",
+    avatar: "/avatar1.jpg",
     text: "Bruno Tasso foi fundamental na resolução do meu caso. Sua expertise em direito médico é incomparável."
   },
   {
@@ -31,28 +29,26 @@ const testimonials = [
 export default function Testimonials() {
   return (
     <section id="depoimentos" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 md:px-16">
         <h2 className="text-3xl font-bold mb-12 text-center text-blue-800">O que Nossos Clientes Dizem</h2>
-        <Carousel className="max-w-4xl mx-auto">
+        <Carousel className="max-w-full md:max-w-4xl mx-auto px-4 relative">
           <CarouselContent>
             {testimonials.map((testimonial, index) => (
               <CarouselItem key={index}>
-                <Card className="bg-white shadow-lg">
-                  <CardContent className="flex flex-col items-center p-6">
-                    <Avatar className='mb-4 size-32' >
+                <Card className="bg-white shadow-lg mx-2">
+                  <CardContent className="flex flex-col items-center p-4 md:p-6">
+                    <Avatar className="mb-4 size-28">
                       <AvatarFallback />
                       <AvatarImage src={testimonial.avatar}
                       alt={testimonial.name} />
-                    </Avatar>
-                    <h3 className="text-xl font-semibold mb-2">{testimonial.name}</h3>
-                    <p className="text-gray-600 text-center italic">&ldquo;{testimonial.text}&rdquo;</p>
+                      </Avatar>
+                    <h3 className="text-lg md:text-xl font-semibold mb-2">{testimonial.name}</h3>
+                    <p className="text-sm md:text-base text-gray-600 text-center italic">&ldquo;{testimonial.text}&rdquo;</p>
                   </CardContent>
                 </Card>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
         </Carousel>
       </div>
     </section>
