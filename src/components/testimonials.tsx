@@ -4,7 +4,9 @@ import { Card, CardContent } from "@/components/ui/card"
 import {
   Carousel,
   CarouselContent,
-  CarouselItem
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious
 } from "@/components/ui/carousel"
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
 
@@ -31,7 +33,7 @@ export default function Testimonials() {
     <section id="depoimentos" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4 md:px-16">
         <h2 className="text-3xl font-bold mb-12 text-center text-blue-800">O que Nossos Clientes Dizem</h2>
-        <Carousel className="max-w-full md:max-w-4xl mx-auto px-4 relative">
+        <Carousel className="w-full max-w-xs">
           <CarouselContent>
             {testimonials.map((testimonial, index) => (
               <CarouselItem key={index}>
@@ -49,6 +51,8 @@ export default function Testimonials() {
               </CarouselItem>
             ))}
           </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
         </Carousel>
       </div>
     </section>
